@@ -1,0 +1,39 @@
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore temporary or backup files
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Ignore compiled files
+*.o
+*.out
+*.class
+
+# Ignore logs and debug files
+*.log
+*.trace
+
+# Ignore other cache files
+*.cache
+.cache/
+
+# Ignore environment files
+.env
+.venv/
+env/
+venv/
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+*.iml
