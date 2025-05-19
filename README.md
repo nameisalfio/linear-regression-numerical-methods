@@ -1,93 +1,97 @@
 # Linear Regression Numerical Methods
 
-Analisi comparativa di metodi numerici per regressione lineare applicati al dataset WHO dell'aspettativa di vita globale.
+Comparative analysis of numerical methods for linear regression applied to the WHO global life expectancy dataset.
 
-## Descrizione del Progetto
+## Project Description
 
-Questo repository contiene l'implementazione e l'analisi di cinque diversi metodi numerici per la risoluzione di problemi di regressione lineare. La ricerca confronta metodi diretti (Least Squares, SVD, QR Decomposition) e metodi iterativi (Conjugate Gradient, Adam Optimization), valutandone efficienza computazionale, stabilità numerica e performance predittiva.
+This repository contains the implementation and analysis of five different numerical methods for solving linear regression problems. The research compares direct methods (Least Squares, SVD, QR Decomposition) and iterative methods (Conjugate Gradient, Adam Optimization), evaluating their computational efficiency, numerical stability, and predictive performance.
 
-Il dataset utilizzato è il "Life Expectancy Data" dell'Organizzazione Mondiale della Sanità (WHO), che contiene indicatori sanitari, socioeconomici e demografici per diversi paesi nel periodo 2000-2015.
+The dataset used is the "Life Expectancy Data" from the World Health Organization (WHO), which contains health, socioeconomic, and demographic indicators for different countries during the period 2000-2015.
 
-## Contenuti del Repository
+## Repository Contents
+```bash
+linear-regression-numerical-methods
+├── Life Expectancy Data.csv.xls  # WHO dataset on life expectancy
+├── linear-regression-tutorial.ipynb  # Jupyter notebook with method implementations and analysis
+├── notebook.pdf  # PDF version of Jupyter notebook
+├── NumericalAnalysis_Report.pdf  # Official documentation
+└── README.md   # This file
+```
 
-- `Life Expectancy Data.csv.xls` - Dataset dell'OMS sull'aspettativa di vita
-- `linear-regression-tutorial.ipynb` - Jupyter notebook con l'implementazione dei metodi e l'analisi
-- `README.md` - Questo file
+## Implemented Methods
 
-## Metodi Implementati
+### Direct Methods
+1. **Least Squares (Normal Equations)** - Direct solution of $(X^TX)^{-1}X^Ty$
+2. **Singular Value Decomposition (SVD)** - Using the decomposition $X = U\Sigma V^T$
+3. **QR Decomposition** - Using the decomposition $X = QR$
 
-### Metodi Diretti
-1. **Least Squares (Equazioni Normali)** - Soluzione diretta di $(X^TX)^{-1}X^Ty$
-2. **Singular Value Decomposition (SVD)** - Utilizzo della decomposizione $X = U\Sigma V^T$
-3. **QR Decomposition** - Utilizzo della decomposizione $X = QR$
+### Iterative Methods
+4. **Conjugate Gradient** - Iterative algorithm optimized for quadratic functions
+5. **Adam Optimization** - Adaptive gradient optimization algorithm
 
-### Metodi Iterativi
-4. **Conjugate Gradient** - Algoritmo iterativo ottimizzato per funzioni quadratiche
-5. **Adam Optimization** - Algoritmo adattivo di ottimizzazione del gradiente
+## Main Results
 
-## Risultati Principali
+- Direct methods and Conjugate Gradient converge to the same solution for well-conditioned problems
+- Conjugate Gradient shows drastically faster convergence compared to Adam (≈10 vs >500 iterations)
+- Extending to a polynomial model of degree 2 reduces the error by 40% compared to the linear model, highlighting the non-linear nature of relationships in the dataset
 
-- I metodi diretti e il Conjugate Gradient convergono alla stessa soluzione per problemi ben condizionati
-- Il Conjugate Gradient mostra una convergenza drasticamente più rapida rispetto ad Adam (≈10 vs >500 iterazioni)
-- L'estensione a un modello polinomiale di grado 2 riduce l'errore del 40% rispetto al modello lineare, evidenziando la natura non lineare delle relazioni nel dataset
+## How to Use
 
-## Come Utilizzare
-
-#### Clonare il repository
+#### Clone the repository
 
 ```bash
-git clone https://github.com/tuousername/linear-regression-numerical-methods.git
+git clone https://github.com/yourusername/linear-regression-numerical-methods.git
 cd linear-regression-numerical-methods
 ```
 
-#### Installare le dipendenze
+#### Install dependencies
 ```bash
 pip install numpy pandas matplotlib scikit-learn jupyter
 ```
 
-#### Avviare Jupyter Notebook
+#### Start Jupyter Notebook
 ```bash
 jupyter notebook linear-regression-tutorial.ipynb
 ```
 
-## Struttura del Notebook
+## Notebook Structure
 
-Il notebook `linear-regression-tutorial.ipynb` è organizzato nelle seguenti sezioni:
+The `linear-regression-tutorial.ipynb` notebook is organized into the following sections:
 
-1. Definition & Working principle: Introduce la regressione lineare, i suoi principi e la rappresentazione dell'ipotesi per regressione semplice e multipla.
-2. Import Library and Dataset: Importazione delle librerie Python necessarie e caricamento del dataset.
-3. 📊 Dataset Structure: Descrizione della struttura del dataset, dettaglio delle feature, obiettivo dell'analisi e un esempio di equazione di regressione.
-4. Matrix Formulation: Spiegazione della formulazione matriciale per la regressione lineare.
-5. Cost function: Definizione della funzione di costo (OLS/MSE) e la sua rappresentazione matriciale.
-6. Normal Equation: Derivazione matematica della Normal Equation per risolvere analiticamente la regressione lineare.
-7. Problem of Ill-Conditioning and Multicollinearity in Regression Models: Discussione del problema della multicollinearità, i suoi effetti e le soluzioni (Ridge e Lasso Regression).
-8. Exploratory data analysis: Analisi esplorativa dei dati, inclusi grafici come:
-  - Relazione tra GDP e Aspettativa di Vita (lmplot)
-  - Matrice di Correlazione
-  - Analisi dei Violin Plots (Aspettativa di vita vs Stato; GDP vs Stato)
-  - Analisi dei Boxplot (Aspettativa di vita vs Categoria GDP e Stato)
-  - Scatter Plot (Aspettativa di vita vs GDP, con HIV/AIDS come hue)
-9. Data Preprocessing: Passaggi di pre-elaborazione dei dati, inclusa la divisione in set di training e test e la normalizzazione.
-10. Model Building: Definizione e implementazione di diversi modelli di regressione (Least Squares, SVD, QR, Conjugate Gradient, Adam). Include la valutazione di questi modelli.
-11. Polynomial Model with Ridge Regularization: Spiegazione e implementazione della regressione polinomiale con regolarizzazione Ridge.
-12. Linear vs. Polynomial Model: Confronto delle performance tra il modello lineare semplice e il modello polinomiale regolarizzato.
-13. 📌 Conclusions: Riassunto dei risultati, dei principali insegnamenti e considerazioni finali.
+1. Definition & Working principle: Introduces linear regression, its principles, and the hypothesis representation for simple and multiple regression.
+2. Import Library and Dataset: Importing necessary Python libraries and loading the dataset.
+3. 📊 Dataset Structure: Description of the dataset structure, feature details, analysis objective, and an example regression equation.
+4. Matrix Formulation: Explanation of the matrix formulation for linear regression.
+5. Cost function: Definition of the cost function (OLS/MSE) and its matrix representation.
+6. Normal Equation: Mathematical derivation of the Normal Equation to analytically solve linear regression.
+7. Problem of Ill-Conditioning and Multicollinearity in Regression Models: Discussion of the multicollinearity problem, its effects, and solutions (Ridge and Lasso Regression).
+8. Exploratory data analysis: Exploratory data analysis, including graphs such as:
+  - Relationship between GDP and Life Expectancy (lmplot)
+  - Correlation Matrix
+  - Violin Plot Analysis (Life Expectancy vs Status; GDP vs Status)
+  - Boxplot Analysis (Life Expectancy vs GDP Category and Status)
+  - Scatter Plot (Life Expectancy vs GDP, with HIV/AIDS as hue)
+9. Data Preprocessing: Data preprocessing steps, including splitting into training and test sets and normalization.
+10. Model Building: Definition and implementation of different regression models (Least Squares, SVD, QR, Conjugate Gradient, Adam). Includes evaluation of these models.
+11. Polynomial Model with Ridge Regularization: Explanation and implementation of polynomial regression with Ridge regularization.
+12. Linear vs. Polynomial Model: Performance comparison between the simple linear model and the regularized polynomial model.
+13. 📌 Conclusions: Summary of results, key learnings, and final considerations.
 
-## Requisiti
+## Requirements
 
 - Python 3.6+
 - NumPy
 - Pandas
 - Matplotlib
-- Scikit-learn (facoltativo, per confronto)
+- Scikit-learn 
 - Jupyter Notebook
 
-## Autore
+## Author
 
-Alfio Spoto - Università di Catania  
-Dipartimento di Matematica e Informatica
+Alfio Spoto - University of Catania  
+Department of Mathematics and Computer Science
 
-## Riferimenti
+## References
 
 - Golub, G. H., & Van Loan, C. F. (2013). Matrix Computations (4th ed.)
 - Nocedal, J., & Wright, S. J. (2006). Numerical Optimization (2nd ed.)
